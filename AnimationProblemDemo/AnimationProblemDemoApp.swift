@@ -1,10 +1,3 @@
-//
-//  AnimationProblemDemoApp.swift
-//  AnimationProblemDemo
-//
-//  Created by Dennis Müller on 20.02.22.
-//
-
 import SwiftUI
 
 @main
