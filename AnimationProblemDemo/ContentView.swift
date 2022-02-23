@@ -2,15 +2,17 @@ import SwiftUI
 
 struct ContentView: View {
 	@State private var showBox = false
-	@State private var showLabel = false
+	@State private var swapViews = false
 
 	var body: some View {
 		ZStack(alignment: .top) {
 			if showBox {
-				Rectangle().fill(.black).frame(width: 100)
+				Rectangle().fill(.black).frame(width: 100) // View A
 					.overlay {
-						if showLabel {
-							Text("42").foregroundColor(.red)
+						if swapViews {
+							Text("42").foregroundColor(.red) // View C
+						} else {
+							ProgressView().tint(.red) // View B
 						}
 					}
 					.transition(.move(edge: .leading))
@@ -23,7 +25,7 @@ struct ContentView: View {
 
 				DispatchQueue.main.asyncAfter(deadline: .now() + . seconds(1)) {
 					withAnimation {
-						showLabel.toggle()
+						swapViews.toggle()
 					}
 				}
 			} label: {
